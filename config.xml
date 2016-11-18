@@ -2,9 +2,9 @@
 <config>
 	<property name="datasource.driverClassName" value="oracle.jdbc.OracleDriver" />
 	<property name="datasource.url"
-		value="jdbc:oracle:thin:@ldap://ldap-ldprd.cisco.com:5000/cn=OracleContext,dc=cisco,dc=com/TS3DMP" />
-	<property name="datasource.username" value="XXCQO_QOT_U" />
-	<property name="datasource.password" value="Oq0R9w3F" />
+		value="" />
+	<property name="datasource.username" value="" />
+	<property name="datasource.password" value="" />
 	<property name="datasource.closeMethod" value="close" />
 	<property name="datasource.maxIdle" value="10" />
 	<property name="datasource.maxAge" value="3000" />

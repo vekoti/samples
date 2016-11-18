@@ -22,7 +22,7 @@ public class MongoConsumer implements Consumer<Document> {
 
 	@Override
 	public void consume(DocumentQueue<Document> queue) {
-		ServerAddress address = new ServerAddress("quotes-dev-01", 27017);
+		ServerAddress address = new ServerAddress("", 27017);
 
 		MongoClient mongoClient = new MongoClient(address);
 
