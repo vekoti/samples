@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="quotingPersistentUnit">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="hibernate.connection.provider_class"
+				value="com.cisco.ccw.quote.etl.sql.ConnectionProviderImpl" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="org.hibernate.flushMode" value="COMMIT" />
+			<property name="hibernate.jdbc.batch_size" value="50" />
+			<property name="hibernate.transaction.auto_close_session"
+				value="true" />
+			<property name="hibernate.connection.autocommit" value="false" />
+			<property name="hibernate.archive.autodetection" value="class" />
+		</properties>
+	</persistence-unit>
+</persistence>
