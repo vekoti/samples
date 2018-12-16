@@ -18,9 +18,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.tomcat.jdbc.pool.DataSourceFactory;
 import org.hibernate.Session;
-
-import irg.test.mongodb.etl.config.Config;
-import irg.test.mongodb.etl.config.Property;
+import org.test.mongodb.etl.config.Config;
+import org.test.mongodb.etl.config.Property;
 
 /**
  * 

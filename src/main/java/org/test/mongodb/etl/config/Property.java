@@ -1,4 +1,4 @@
-package irg.test.mongodb.etl.config;
+package org.test.mongodb.etl.config;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
