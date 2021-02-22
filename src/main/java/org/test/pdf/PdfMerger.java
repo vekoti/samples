@@ -3,6 +3,8 @@ package org.test.pdf;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -11,45 +13,42 @@ import com.itextpdf.text.pdf.PdfReader;
 
 public class PdfMerger {
 
-	public static final String COVER = "C:\\Users\\vekoti\\Google Drive\\Narmadha\\Passport.pdf";
-	public static final String SRC = "C:\\Users\\vekoti\\Google Drive\\Personal\\Passport.pdf";
-	public static final String DEST = "C:\\Users\\vekoti\\Google Drive\\Ira Koti\\Parents Passport.pdf";
-
 	/**
 	 * Manipulates a PDF file src with the file dest as result
 	 * 
-	 * @param src
-	 *            the original PDF
-	 * @param dest
-	 *            the resulting PDF
+	 * @param src  the original PDF
+	 * @param dest the resulting PDF
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	public void manipulatePdf(String src, String dest) throws IOException, DocumentException {
-		PdfReader cover = new PdfReader(COVER);
-		PdfReader reader = new PdfReader(src);
+	public void merge(String dest, String... files) throws IOException, DocumentException {
 		Document document = new Document();
 		PdfCopy copy = new PdfCopy(document, new FileOutputStream(dest));
 		document.open();
-		copy.addDocument(cover);
-		copy.addDocument(reader);
+		List<PdfReader> readers = new ArrayList<PdfReader>();
+		for (String file : files) {
+			PdfReader input = new PdfReader(file);
+			readers.add(input);
+			copy.addDocument(input);
+		}
 		document.close();
-		cover.close();
-		reader.close();
+		for (PdfReader reader : readers) {
+			reader.close();
+		}
 	}
 
 	/**
 	 * Main method.
 	 * 
-	 * @param args
-	 *            no arguments needed
+	 * @param args no arguments needed
 	 * @throws DocumentException
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException, DocumentException {
-		File file = new File(DEST);
+		File file = new File("C:\\Users\\vekoti\\Google Drive\\Narmadha\\Passport.pdf");
 		file.getParentFile().mkdirs();
-		new PdfMerger().manipulatePdf(SRC, DEST);
+		new PdfMerger().merge(file.getAbsolutePath(), "C:\\Users\\vekoti\\Google Drive\\Narmadha\\Narmadha Koti - Passport New.pdf",
+				"C:\\Users\\vekoti\\Google Drive\\Narmadha\\Narmadha Canada Visa.pdf");
 	}
 
 }
